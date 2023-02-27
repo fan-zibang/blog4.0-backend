@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.BrantleyFan.blog.mapper.SysUserMapper">
+    <select id="findAuthorNameById" parameterType="int" resultType="String">
+        select nickname from tb_sys_user where id=#{id};
+    </select>
+
+    <update id="updateSysUserById" parameterType="com.BrantleyFan.blog.vo.params.SysUserParam">
+        update tb_sys_user set account=#{account},password=#{password},email=#{email},mobile_phone=#{mobilePhone},nickname=#{nickname} where id=#{id}
+    </update>
+
+    <update id="updatePasswordById" parameterType="com.BrantleyFan.blog.vo.params.PasswordParams">
+        update tb_sys_user set password=#{newPassword} where id=#{id}
+    </update>
+</mapper>

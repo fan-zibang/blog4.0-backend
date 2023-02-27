@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.BrantleyFan.blog.mapper.ArticleMapper">
+
+    <select id="getArticleCount" resultType="int">
+        select count(*) from tb_article
+    </select>
+
+    <select id="listArticlePage" resultType="com.BrantleyFan.blog.pojo.Article">
+        SELECT * FROM tb_article order by create_time desc
+    </select>
+
+    <select id="listHotArticlePage" resultType="com.BrantleyFan.blog.pojo.Article">
+        select * from tb_article order by view_counts desc
+    </select>
+
+</mapper>
